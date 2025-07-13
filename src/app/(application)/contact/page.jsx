@@ -12,6 +12,7 @@ import {
   MessageCircle,
   HelpCircle,
 } from "lucide-react"
+import toast from "react-hot-toast"
 
 const faqs = [
   {
@@ -35,28 +36,65 @@ const ContactPageSection = () => {
     phone: "",
     subject: "",
     message: "",
-  })
+  });
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
   const [faqOpenIndex, setFaqOpenIndex] = useState(null)
   const [shouldAnimate, setShouldAnimate] = useState(true)
 
+
   const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // شبیه‌سازی ارسال فرم
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitted(true)
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" })
-      setTimeout(() => setSubmitted(false), 5000) // پیام بعد ۵ ثانیه محو شود
-    }, 2000)
-  }
+    const formPayload = new URLSearchParams();
+    formPayload.append("email", formData.email);
+    formPayload.append(
+      "message",
+      `
+        نام: ${formData.name}
+        شماره تماس: ${formData.phone}
+        موضوع: ${formData.subject}
+        پیام: ${formData.message}
+      `
+    );
+
+    try {
+      const res = await fetch("https://formspree.io/f/mdkekzbb", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: formPayload,
+      });
+
+      const result = await res.json();
+
+      if (res.ok) {
+        toast.success("پیام شما با موفقیت ارسال شد");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        toast.error(result?.errors?.[0]?.message || "ارسال پیام با مشکل مواجه شد");
+      }
+    } catch (error) {
+      toast.error("خطا در ارتباط با سرور");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+
+
 
   const toggleFaq = (index) => {
     setFaqOpenIndex(faqOpenIndex === index ? null : index)
@@ -94,7 +132,7 @@ const ContactPageSection = () => {
       {/* فرم و اطلاعات تماس */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
         {/* فرم تماس */}
-        <form className="lg:col-span-2 flex flex-col gap-4 md:gap-12 bg-[#121a1e] p-6 sm:p-8 rounded-2xl shadow-lg">
+        <form onSubmit={handleSubmit} className="lg:col-span-2 flex flex-col gap-4 md:gap-12 bg-[#121a1e] p-6 sm:p-8 rounded-2xl shadow-lg">
           <input
             type="text"
             name="name"
@@ -169,16 +207,6 @@ const ContactPageSection = () => {
               "ارسال پیام"
             )}
           </button>
-
-          {submitted && (
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="text-green-400 font-semibold mt-2 text-center"
-            >
-              پیام شما با موفقیت ارسال شد!
-            </motion.p>
-          )}
         </form>
 
         {/* اطلاعات تماس + شبکه‌ها + سوالات متداول */}
@@ -266,24 +294,6 @@ const ContactPageSection = () => {
           </div>
         </div>
       </div>
-
-      {/* نقشه گوگل */}
-      {/* <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="max-w-7xl mx-auto mt-16 rounded-xl overflow-hidden shadow-lg"
-        style={{ height: "400px", width: "100%" }}
-      >
-        <iframe
-          title="آدرس شرکت آرک"
-          src="https://www.google.com/maps/embed?pb=!..."
-          className="w-full h-full border-0"
-          allowFullScreen
-          loading="lazy"
-        ></iframe>
-      </motion.div> */}
     </section>
   )
 }

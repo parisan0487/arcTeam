@@ -153,27 +153,18 @@ body {
 
 
 
+@keyframes float {
 
-/* styles.css */
-.custom-scrollbar-horizontal {
-  scrollbar-width: thin;
-  scrollbar-color: #00e0ca transparent;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap; /* جلوگیری از شکست خطوط */
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
-.custom-scrollbar-horizontal::-webkit-scrollbar {
-  height: 6px; /* چون افقیه ارتفاع اسکرول‌بار را تنظیم می‌کنیم */
-}
-
-.custom-scrollbar-horizontal::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar-horizontal::-webkit-scrollbar-thumb {
-  background-color: #00e0ca;
-  border-radius: 10px;
-  border: 2px solid transparent;
-  background-clip: content-box;
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
