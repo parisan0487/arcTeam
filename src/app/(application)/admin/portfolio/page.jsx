@@ -56,7 +56,6 @@ export default function PortfolioListPage() {
 
     const openDeleteModal = (id) => {
         setPortfoliosToDelete(id);
-        console.log(id)
         setShowDeleteModal(true);
     };
 

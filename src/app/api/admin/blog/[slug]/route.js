@@ -20,7 +20,6 @@ export async function GET(req, { params }) {
 }
 
 export async function DELETE(req, { params }) {
-    console.log(params)
     await connectDB()
     const slug = params.slug;
     

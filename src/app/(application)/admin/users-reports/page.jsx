@@ -78,7 +78,6 @@ export default function ReportsListPage() {
             .then((data) => {
                 if (!data) return;
                 setReports(data.reports);
-                console.log(data.reports)
                 setPagination({
                     totalPages: data.pagination.totalPages,
                     totalReports: data.pagination.totalReports,
