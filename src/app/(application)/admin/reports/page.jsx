@@ -57,7 +57,7 @@ export default function SubmitReportPage() {
     };
 
     return (
-        <div className="max-w-xl mx-auto px-4 py-10 rounded-2xl bg-[#1a1a1a] text-white border border-gray-700 shadow-2xl">
+        <div className="max-w-xl mx-auto px-4 max-sm:mt-10 py-10 rounded-2xl bg-[#1a1a1a] text-white border border-gray-700 shadow-2xl">
             <h1 className="text-2xl font-extrabold mb-8 text-[#00e0ca] text-center border-b border-[#00e0ca] pb-2">
                 ثبت گزارش روزانه
             </h1>

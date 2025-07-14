@@ -105,40 +105,39 @@ export default function ReportsListPage() {
         );
 
     return (
-        <div className="p-6 max-w-5xl mx-auto">
-            <h1 className="text-2xl font-bold mb-6 text-[#00e0ca]">گزارش‌های کاربران</h1>
+        <div className="p-4 sm:p-6 max-w-6xl mx-auto">
+            <h1 className="text-xl sm:text-2xl font-bold mb-6 text-[#00e0ca] text-center sm:text-right">گزارش‌های کاربران</h1>
 
             <div className="w-full max-w-[54rem] flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-
                 {/* فیلترها */}
-                <div className="flex flex-wrap items-end gap-4 flex-1">
-                    <div className="flex flex-col">
+                <div className="flex flex-wrap items-end gap-4 flex-1 w-full">
+                    <div className="flex flex-col w-full sm:w-52">
                         <label className="mb-1 text-sm text-gray-300">تاریخ</label>
                         <input
                             type="text"
                             placeholder="1403/04/05"
-                            className="border border-gray-600 bg-[#2a2a2a] text-white p-2 rounded w-52 focus:outline-none focus:ring-2 focus:ring-[#00e0ca]"
+                            className="border border-gray-600 bg-[#2a2a2a] text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#00e0ca]"
                             value={jalaliDate}
                             onChange={(e) => setJalaliDate(e.target.value)}
                         />
                     </div>
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col w-full sm:w-52">
                         <label className="mb-1 text-sm text-gray-300">نام کاربر</label>
                         <input
                             type="text"
                             placeholder="نام کاربر"
-                            className="border border-gray-600 bg-[#2a2a2a] text-white p-2 rounded w-52 focus:outline-none focus:ring-2 focus:ring-[#00e0ca]"
+                            className="border border-gray-600 bg-[#2a2a2a] text-white p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#00e0ca]"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
                     </div>
 
-                    <div className="flex flex-col">
+                    <div className="flex flex-col w-full sm:w-auto">
                         <label className="mb-1 text-sm text-transparent select-none">اعمال فیلتر</label>
                         <button
                             onClick={handleFilter}
-                            className="bg-[#00e0ca] text-black px-4 py-2 rounded hover:bg-[#00cbb5] transition-colors"
+                            className="bg-[#00e0ca] text-black px-4 py-2 rounded hover:bg-[#00cbb5] transition-colors w-full sm:w-auto text-sm"
                         >
                             اعمال فیلتر
                         </button>
@@ -146,22 +145,20 @@ export default function ReportsListPage() {
                 </div>
             </div>
 
-
-
             {/* لیست گزارش‌ها */}
             {reports.length === 0 ? (
-                <p className="text-gray-500">گزارشی یافت نشد.</p>
+                <p className="text-gray-500 text-center">گزارشی یافت نشد.</p>
             ) : (
-                <ul className="grid grid-cols-3 gap-y-10">
+                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-[635px]:grid-cols-2 max-[539px]:grid-cols-1  max-[539px]:justify-items-center gap-10 justify-center">
                     {reports.map((report) => (
                         <li
                             key={report._id}
-                            className="p-4 rounded-xl shadow-lg bg-[#1a1a1a] flex flex-col gap-1 w-60 h-52 hover:scale-105 transition-transform duration-300 cursor-pointer"
+                            className="p-4 rounded-xl shadow-lg bg-[#1a1a1a] flex flex-col gap-1 w-full max-w-[15rem] h-52 hover:scale-105 transition-transform duration-300 cursor-pointer"
                         >
                             <div className="flex flex-col gap-3">
                                 <p className="text-white font-semibold truncate">کاربر: {report.userId?.username || 'ناشناخته'}</p>
                                 <p className="text-[#00e0ca] font-bold truncate">عنوان: {report.title}</p>
-                                <p className="text-gray-300 text-sm max-w-full custom-scrollbar-horizontal">
+                                <p className="text-gray-300 text-sm max-w-full custom-scrollbar-horizontal overflow-x-auto whitespace-nowrap">
                                     توضیح: {report.description}
                                 </p>
                             </div>
@@ -177,27 +174,28 @@ export default function ReportsListPage() {
             )}
 
             {/* صفحه بندی */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center gap-2 mt-6 flex-wrap sm:flex-nowrap">
                 <button
                     disabled={filters.page <= 1}
                     onClick={() => handlePageChange(filters.page - 1)}
-                    className="px-4 py-2 rounded bg-[#00e0ca] text-black disabled:opacity-50"
+                    className="px-3 py-1.5 rounded bg-[#00e0ca] text-black disabled:opacity-50 text-sm"
                 >
                     قبلی
                 </button>
 
-                <span className="px-4 py-2 text-white">
+                <span className="px-3 py-1.5 text-white text-sm">
                     صفحه {filters.page} از {pagination.totalPages}
                 </span>
 
                 <button
                     disabled={filters.page >= pagination.totalPages}
                     onClick={() => handlePageChange(filters.page + 1)}
-                    className="px-4 py-2 rounded bg-[#00e0ca] text-black disabled:opacity-50"
+                    className="px-3 py-1.5 rounded bg-[#00e0ca] text-black disabled:opacity-50 text-sm"
                 >
                     بعدی
                 </button>
             </div>
         </div>
     );
+
 }

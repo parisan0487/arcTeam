@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // آیکون‌های همبرگر و بستن
+import { Menu, X } from 'lucide-react';
 
 const links = [
     { href: '/admin/blog', label: 'مقالات' },
@@ -50,8 +50,7 @@ export default function Sidebar() {
                     ${menuOpen ? 'max-h-screen mt-4' : 'max-h-0 sm:max-h-full'} sm:mt-6 sm:flex`}
                 >
                     {links.map(({ href, label }) => {
-                        const isActive = pathname.startsWith(href);
-                        const isChangePassword = href === '/admin/change-password';
+                        const isActive = pathname === href;
 
                         return (
                             <Link
@@ -59,7 +58,6 @@ export default function Sidebar() {
                                 href={href}
                                 onClick={() => setMenuOpen(false)} // بستن منو بعد از کلیک روی لینک در موبایل
                                 className={`
-                                    ${isChangePassword ? 'hidden sm:block' : ''}
                                     px-3 py-2 rounded-md text-center sm:text-right text-[15px] sm:text-lg font-medium
                                     transition-all
                                     ${isActive
