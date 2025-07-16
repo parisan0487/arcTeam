@@ -11,27 +11,32 @@ export async function POST(req) {
     const token = req.cookies.get('token')?.value;
     const userData = verifyToken(token);
 
-
-
-    if (!userData) return NextResponse.json({ message: 'وارد شوید', success: false }, { status: 401 });
+    if (!userData) {
+        return NextResponse.json({ message: 'وارد شوید', success: false }, { status: 401 });
+    }
 
     const { title, description, duration } = await req.json();
 
-    if (!title || !description || !duration)
+    if (!title || !description || !duration) {
         return NextResponse.json({ message: 'همه فیلدها اجباری هستند', success: false }, { status: 400 });
+    }
 
+    const user = await User.findById(userData.userId);
+
+    if (!user) {
+        return NextResponse.json({ message: 'کاربر یافت نشد', success: false }, { status: 404 });
+    }
 
     const report = await Report.create({
-        userId: userData.userId,
+        userId: user._id,
+        username: user.username, 
         title,
         description,
         duration
     });
 
     return NextResponse.json({ message: 'گزارش ثبت شد', success: true, report });
-
 }
-
 
 
 

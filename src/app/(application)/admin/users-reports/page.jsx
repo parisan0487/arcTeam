@@ -156,7 +156,7 @@ export default function ReportsListPage() {
                             className="p-4 rounded-xl shadow-lg bg-[#1a1a1a] flex flex-col gap-1 w-full max-w-[15rem] h-52 hover:scale-105 transition-transform duration-300 cursor-pointer"
                         >
                             <div className="flex flex-col gap-3">
-                                <p className="text-white font-semibold truncate">کاربر: {report.userId?.username || 'ناشناخته'}</p>
+                                <p className="text-white font-semibold truncate">کاربر: {report.username || 'ناشناخته'}</p>
                                 <p className="text-[#00e0ca] font-bold truncate">عنوان: {report.title}</p>
                                 <p className="text-gray-300 text-sm max-w-full custom-scrollbar-horizontal overflow-x-auto whitespace-nowrap">
                                     توضیح: {report.description}

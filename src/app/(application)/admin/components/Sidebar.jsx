@@ -5,12 +5,12 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const links = [
-    { href: '/admin/blog', label: 'مقالات' },
     { href: '/admin/portfolio', label: 'نمونه‌کارها' },
+    { href: '/admin/blog', label: 'مقالات' },
     { href: '/admin/users-reports', label: 'گزارش‌های کاربران' },
+    { href: '/admin/users', label: 'کاربران' },
     { href: '/admin/reports', label: 'ثبت گزارش' },
     { href: '/admin/change-password', label: "تغییر رمز" },
-    { href: '/admin/users', label: 'کاربران' },
 ];
 
 export default function Sidebar() {
