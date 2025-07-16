@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs/promises';
 
-export const dynamic = 'force-dynamic'; // برای جلوگیری از کش شدن مسیر
+export const dynamic = 'force-dynamic';
 
 export async function POST(req) {
     const formData = await req.formData();

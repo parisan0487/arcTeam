@@ -22,7 +22,7 @@ export default function NewBlogsPage() {
   const editor = useEditor({
     extensions: [
       StarterKit,
-      TextStyle,   // برای استایل دادن به متن
+      TextStyle, 
       Color,
     ],
     content: '',

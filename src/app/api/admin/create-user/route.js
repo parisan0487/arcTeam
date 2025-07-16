@@ -1,4 +1,3 @@
-// app/api/admin/create-user/route.js
 import { NextResponse } from 'next/server';
 import { connectDB } from '@/lib/db';
 import { User } from '@/models/user';

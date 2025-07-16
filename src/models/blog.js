@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
 const BlogsSchema = new mongoose.Schema({
     title: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
-    excerpt: { type: String }, // توضیح کوتاه برای پیش‌نمایش
+    excerpt: { type: String }, 
     content: { type: String, required: true },
-    image: { type: String }, // URL تصویر
+    image: { type: String },
     createdAt: { type: Date, default: Date.now },
 });
 
