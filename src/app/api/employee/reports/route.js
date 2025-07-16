@@ -20,6 +20,7 @@ export async function POST(req) {
     if (!title || !description || !duration)
         return NextResponse.json({ message: 'همه فیلدها اجباری هستند', success: false }, { status: 400 });
 
+
     const report = await Report.create({
         userId: userData.userId,
         title,

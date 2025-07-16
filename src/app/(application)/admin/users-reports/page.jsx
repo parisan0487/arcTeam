@@ -137,7 +137,7 @@ export default function ReportsListPage() {
                         <label className="mb-1 text-sm text-transparent select-none">اعمال فیلتر</label>
                         <button
                             onClick={handleFilter}
-                            className="bg-[#00e0ca] text-black px-4 py-2 rounded hover:bg-[#00cbb5] transition-colors w-full sm:w-auto text-sm"
+                            className="bg-[#00e0ca] text-black px-4 py-2.5 rounded hover:bg-[#00cbb5] transition-colors w-full sm:w-auto text-sm"
                         >
                             اعمال فیلتر
                         </button>
@@ -174,7 +174,7 @@ export default function ReportsListPage() {
             )}
 
             {/* صفحه بندی */}
-            <div className="flex justify-center gap-2 mt-6 flex-wrap sm:flex-nowrap">
+            <div className="flex justify-center gap-10 mt-12 flex-wrap sm:flex-nowrap">
                 <button
                     disabled={filters.page <= 1}
                     onClick={() => handlePageChange(filters.page - 1)}
@@ -183,9 +183,6 @@ export default function ReportsListPage() {
                     قبلی
                 </button>
 
-                <span className="px-3 py-1.5 text-white text-sm">
-                    صفحه {filters.page} از {pagination.totalPages}
-                </span>
 
                 <button
                     disabled={filters.page >= pagination.totalPages}

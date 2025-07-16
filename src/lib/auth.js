@@ -2,11 +2,16 @@ import jwt from 'jsonwebtoken';
 
 export function verifyToken(token) {
     try {
-        return jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        return {
+            userId: decoded.id,
+            role: decoded.role,
+        };
     } catch {
         return null;
     }
 }
+
 
 
 // تابع بررسی لاگین بودن در سمت سرور
