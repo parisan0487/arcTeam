@@ -66,7 +66,7 @@ export default function ProjectsSection() {
                         variants={textReveal}
                         className="text-[27px] sm:text-4xl md:text-5xl font-bold"
                     >
-                        برخی نمونه‌کارها
+                        پروژه های ما
                     </motion.h2>
 
                     <motion.div

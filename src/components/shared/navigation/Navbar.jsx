@@ -26,7 +26,7 @@ export default function Navbar() {
     const navLinks = [
         { href: "/", label: "صفحه اصلی" },
         { href: "/services", label: "خدمات" },
-        { href: "/portfolio", label: "نمونه کارها" },
+        { href: "/portfolio", label: "پروژه های ما" },
         { href: "/blog", label: "وبلاگ" },
         { href: "/about", label: "درباره ما" },
         { href: "/contact", label: "تماس با ما" },
@@ -89,11 +89,11 @@ export default function Navbar() {
                                 </svg>
                             </div>
                             <span className="text-white text-[1.1rem] font-bold z-10 transition-colors duration-500 hover:text-[#73ED7C]">
-                                0905678778
+                                09304898743
                             </span>
                         </div>
 
-                        {role === "admin" ||  role === "employee" ? (
+                        {role === "admin" || role === "employee" ? (
                             <Link
                                 href="/admin"
                                 className="relative w-40 h-12 rounded-3xl overflow-hidden group

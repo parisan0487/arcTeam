@@ -16,36 +16,46 @@ const ServicesSection = () => {
             opacity: useTransform(scrollYProgress, [0.0, 0.15, 0.2], [1, 1, 0])
         },
         {
-            y: useTransform(scrollYProgress, [0.2, 0.55], [50, -50]),
-            opacity: useTransform(scrollYProgress, [0.2, 0.35, 0.5], [0, 1, 0])
+            y: useTransform(scrollYProgress, [0.2, 0.45], [50, -50]),
+            opacity: useTransform(scrollYProgress, [0.2, 0.35, 0.45], [0, 1, 0])
         },
         {
-            y: useTransform(scrollYProgress, [0.55, 0.9], [50, 0]),
-            opacity: useTransform(scrollYProgress, [0.55, 0.7, 0.9], [0, 1, 1])
+            y: useTransform(scrollYProgress, [0.45, 0.7], [50, -50]),
+            opacity: useTransform(scrollYProgress, [0.45, 0.6, 0.7], [0, 1, 0])
+        },
+        {
+            y: useTransform(scrollYProgress, [0.7, 1], [50, 0]),
+            opacity: useTransform(scrollYProgress, [0.7, 0.85, 1], [0, 1, 1])
         }
     ]
 
     const dotColors = [
         useTransform(scrollYProgress, [0, 0.1, 0.2], ["#ffffff", "#ffffff", "#444"]),
-        useTransform(scrollYProgress, [0.25, 0.4, 0.55], ["#444", "#ffffff", "#444"]),
-        useTransform(scrollYProgress, [0.6, 0.75, 0.9], ["#444", "#ffffff", "#ffffff"]),
+        useTransform(scrollYProgress, [0.2, 0.35, 0.45], ["#444", "#ffffff", "#444"]),
+        useTransform(scrollYProgress, [0.45, 0.6, 0.7], ["#444", "#ffffff", "#444"]),
+        useTransform(scrollYProgress, [0.7, 0.85, 1], ["#444", "#ffffff", "#ffffff"]),
     ]
 
     const texts = [
         {
             icon: <Smartphone className="w-16 h-16 text-[#72ED7C]" />,
-            title: "اپلیکیشن موبایل با فلاتر",
-            content: "یک کد برای اندروید و iOS با طراحی مدرن"
+            title: "توسعه برنامه های کاربردی",
+            content: "مشاوره, طراحی و توسعه برنامه های کاربردی برای موبایل و دسکتاپ"
         },
         {
             icon: <Paintbrush className="w-16 h-16 text-[#019297]" />,
-            title: "طراحی رابط کاربری",
-            content: "طراحی خلاقانه و کاربرمحور برای سایت و اپ"
+            title: "توسعه وب اپلیکیشن",
+            content: "طراحی و توسعه وب اپلیکیشن با تکنولوژی های روز"
         },
         {
             icon: <Monitor className="w-16 h-16 text-[#019297]" />,
-            title: "طراحی سایت اختصاصی",
-            content: "سایت‌هایی سریع، سئو شده و واکنش‌گرا"
+            title: "توسعه وب سایت های شخصی و تجاری",
+            content: "مشاوره, طراحی و توسعه وبسایت های شخصی و فروشگاهی با کلیه امکانات"
+        },
+        {
+            icon: <Monitor className="w-16 h-16 text-[#019297]" />,
+            title: "ارائه خدمات هوش مصنوعی",
+            content: "مشاوره و پیاده سازی خدمات مرتبط با کسب و کارهای مبتنی برهوش مصنوعی و چت بات ها"
         },
     ]
 
@@ -78,6 +88,7 @@ const ServicesSection = () => {
                         <motion.div className="w-3 h-3 rounded-full z-10" style={{ backgroundColor: dotColors[0] }} />
                         <motion.div className="w-3 h-3 rounded-full z-10" style={{ backgroundColor: dotColors[1] }} />
                         <motion.div className="w-3 h-3 rounded-full z-10" style={{ backgroundColor: dotColors[2] }} />
+                        <motion.div className="w-3 h-3 rounded-full z-10" style={{ backgroundColor: dotColors[3] }} />
                     </div>
 
                     {/* متون */}
@@ -107,4 +118,4 @@ const ServicesSection = () => {
     )
 }
 
-export default ServicesSection;
+export default ServicesSection

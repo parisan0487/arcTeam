@@ -8,20 +8,20 @@ export default function Footer() {
     return (
         <footer className="bg-[#062e2e] text-white pt-16 pb-10 px-6 md:px-10 rounded-t-4xl mt-10">
             <div className="flex flex-col md:flex-row md:justify-between gap-10">
-                {/* سمت راست */}
+                {/* سمت راست
                 <div className="md:w-1/2 text-center md:text-right space-y-4">
                     <h2 className="text-[28px] md:text-[2.70rem] font-bold leading-relaxed">
                         توسعه و طراحی میکنیم <span className="text-green-500">پروژه</span>
                         <br />
                         های <span className="text-green-400">موفق را</span>
                     </h2>
-                </div>
+                </div> */}
 
                 {/* سمت چپ */}
                 <div className="md:w-1/2 flex flex-col md:flex-row md:gap-40 text-center md:text-right gap-10">
                     {/* آدرس شرکت */}
                     <div className="space-y-2">
-                        <h3 className="font-bold text-[25px] transition-colors duration-500 hover:text-[#73ED7C]">آدرس شرکت</h3>
+                        <h3 className="font-bold text-[25px] transition-colors duration-500 hover:text-[#73ED7C]">آدرس دفتر</h3>
                         <p className="text-sm">خراسان رضوی  , کاشمر ,  خیابان چهارده معصوم</p>
                         <div className="flex justify-center md:justify-start gap-4 text-lg pt-2 ">
                             <Link href="/"><Instagram size={30} /></Link>
@@ -32,8 +32,8 @@ export default function Footer() {
                     {/* تماس با شرکت */}
                     <div className="space-y-2">
                         <h3 className="font-bold text-[25px] transition-colors duration-500 hover:text-[#73ED7C]">تماس با شرکت</h3>
-                        <p className="text-sm">info@domain.com</p>
-                        <p className="text-sm">۰۲۱۸۸۸۸۸۸۸۸</p>
+                        <p className="text-sm">arc.team1403@gmail.com</p>
+                        <p className="text-sm">09304898743</p>
                     </div>
                 </div>
             </div>

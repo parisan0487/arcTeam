@@ -9,7 +9,7 @@ const navItems = [
     { title: "صفحه اصلی", href: "/" },
     { title: "خدمات", href: "/services" },
     { title: "وبلاگ", href: "/blog", },
-    { title: "نمونه‌کارها", href: "/portfolio" },
+    { title: "پروژه های ما", href: "/portfolio" },
     { title: "درباره ما", href: "/about" },
     { title: "تماس با ما", href: "/contact" },
 ]

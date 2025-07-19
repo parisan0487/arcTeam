@@ -10,14 +10,14 @@ const FeatureBox = () => {
     const features = [
         {
             icon: <Calendar className="w-6 h-6 text-[#73ED7C]" />,
-            title: "بیش از ۵۰ سال سابقه کار",
+            title: "بیش از 15 سال سابقه کار",
             desc: "تجربه و تخصص درخشان",
         },
-        {
-            icon: <Users className="w-6 h-6 text-[#019297]" />,
-            title: "همکاری با بیش از ۸ استارتاپ",
-            desc: "شرکای تجاری موفق",
-        },
+        // {
+        //     icon: <Users className="w-6 h-6 text-[#019297]" />,
+        //     title: "همکاری با بیش از ۸ استارتاپ",
+        //     desc: "شرکای تجاری موفق",
+        // },
         {
             icon: <BadgeCheck className="w-6 h-6 text-[#019297]" />,
             title: "تضمین کیفیت و قیمت",
@@ -26,7 +26,7 @@ const FeatureBox = () => {
         {
             icon: <Headphones className="w-6 h-6 text-[#73ED7C]" />,
             title: "مشاوره و پشتیبانی",
-            desc: "پشتیبانی ۲۴/۷",
+            desc: "پشتیبانی 24/7",
         },
         
     ];
@@ -40,7 +40,7 @@ const FeatureBox = () => {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="w-full max-w-7xl px-4 max-sm:px-10 py-6 dark:bg-gray-800 rounded-lg shadow-xl dark:shadow-gray-700/30 border border-gray-200 dark:border-gray-700"
             >
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-8 max-sm:gap-y-0">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-8 max-sm:gap-y-0">
                     {features.map((feature, index) => (
                         <React.Fragment key={index}>
                             <motion.div
